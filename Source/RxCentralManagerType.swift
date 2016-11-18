@@ -45,6 +45,8 @@ protocol RxCentralManagerType {
     /// Current state of Central Manager
     var state: BluetoothState { get }
 
+    var cbCentralManager: CBCentralManager { get }
+
     /**
      Start scanning for peripherals with specified services. Results will be available on rx_didDiscoverPeripheral
      observable.
@@ -91,4 +93,10 @@ protocol RxCentralManagerType {
      - returns: Observable which emits peripherals with specified identifiers.
      */
     func retrievePeripherals(withIdentifiers identifiers: [UUID]) -> Observable<[RxPeripheralType]>
+}
+
+extension RxCentralManagerType {
+    var cbCentralManager: CBCentralManager { 
+      return (self as! RxCBCentralManager).centralManager
+    }
 }

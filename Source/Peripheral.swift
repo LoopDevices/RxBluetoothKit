@@ -33,6 +33,10 @@ import CoreBluetooth
 public class Peripheral {
     let manager: BluetoothManager
 
+    public var cbCentralManager: CBCentralManager {
+      return manager.cbCentralManager
+    }
+
     init(manager: BluetoothManager, peripheral: RxPeripheralType) {
         self.manager = manager
         self.peripheral = peripheral
@@ -40,6 +44,10 @@ public class Peripheral {
 
     /// Implementation of peripheral
     let peripheral: RxPeripheralType
+
+    public var cbPeripheral: CBPeripheral {
+      return peripheral.cbPeripheral
+    }
 
     /**
      Continuous value indicating if peripheral is in connected state. This is continuous value, which first emits `.Next` with current state, and later whenever state change occurs

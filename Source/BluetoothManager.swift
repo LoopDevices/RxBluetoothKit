@@ -49,7 +49,11 @@ import CoreBluetooth
 public class BluetoothManager {
 
     /// Implementation of Central Manager
-    private let centralManager: RxCentralManagerType
+    let centralManager: RxCentralManagerType
+
+    var cbCentralManager: CBCentralManager {
+      return centralManager.cbCentralManager
+    }
 
     /// Queue on which all observables are serialised if needed
     private let subscriptionQueue: SerializedSubscriptionQueue
