@@ -77,6 +77,8 @@ protocol RxPeripheralType {
     /// Observable which emits descriptor which completed sucessfully its write operation
     var rx_didWriteValueForDescriptor: Observable<(RxDescriptorType, Error?)> { get }
 
+    var cbPeripheral: CBPeripheral { get }
+
     /**
      Discover services with specified optional list of UUIDs. Passing `nil` will show all available services for
      peripheral. Results are returned by `rx_didDiscoverServices` observable after subscription.
@@ -168,6 +170,12 @@ protocol RxPeripheralType {
     /// Read RSSI from peripheral
     func readRSSI()
 
+}
+
+extension RxPeripheralType {
+    var cbPeripheral: CBPeripheral {
+      return (self as! RxCBPeripheral).peripheral
+    }
 }
 
 extension Equatable where Self: RxPeripheralType {}
