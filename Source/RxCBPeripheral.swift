@@ -30,7 +30,7 @@ import RxSwift
  */
 class RxCBPeripheral: RxPeripheralType {
 
-    let peripheral: CBPeripheral
+    public let peripheral: CBPeripheral
     private let internalDelegate: InternalPeripheralDelegate
 
     init(peripheral: CBPeripheral) {
