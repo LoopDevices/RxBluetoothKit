@@ -96,7 +96,7 @@ protocol RxCentralManagerType {
 }
 
 extension RxCentralManagerType {
-    var cbCentralManager: CBCentralManager { 
+    var cbCentralManager: CBCentralManager {
       return (self as! RxCBCentralManager).centralManager
     }
 }
