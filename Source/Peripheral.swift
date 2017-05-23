@@ -37,7 +37,7 @@ public class Peripheral {
       return manager.cbCentralManager
     }
 
-    init(manager: BluetoothManager, peripheral: RxPeripheralType) {
+    public init(manager: BluetoothManager, peripheral: RxPeripheralType) {
         self.manager = manager
         self.peripheral = peripheral
     }
